@@ -117,6 +117,30 @@ const menuData = [
     }
 ];
 
+// Drinks Data
+const drinksData = [
+    {
+        id: 101,
+        name: "Milkshake",
+        price: 9000,
+        image: "DRINK/Milkshake.jpeg"
+    },
+    {
+        id: 102,
+        name: "Smoothie",
+        price: 7000,
+        image: "DRINK/SMOOTHIES.jpeg"
+    },
+    {
+        id: 103,
+        name: "Long Island",
+        price: 10000,
+        image: "DRINK/Long island.jpeg"
+    }
+];
+
+const allProducts = [...menuData, ...drinksData];
+
 // Cart State
 let cart = {};
 
@@ -164,7 +188,30 @@ function initMenu() {
         `;
         menuGrid.appendChild(card);
     });
+    renderDrinks();
     updateMenuCardsUI();
+}
+
+function renderDrinks() {
+    const drinksList = document.getElementById('drinksList');
+    if (!drinksList) return;
+    
+    drinksList.innerHTML = '';
+    drinksData.forEach(drink => {
+        const card = document.createElement('div');
+        card.className = 'drink-card';
+        card.innerHTML = `
+            <img src="${drink.image}" alt="${drink.name}">
+            <div class="drink-card-info">
+                <h5>${drink.name}</h5>
+                <span>₦${drink.price.toLocaleString()}</span>
+            </div>
+            <button class="drink-add-btn" onclick="updateCartQuantity(${drink.id}, 1)">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        `;
+        drinksList.appendChild(card);
+    });
 }
 
 function updateMenuCardsUI() {
@@ -189,7 +236,7 @@ function updateMenuCardsUI() {
 
 // Cart Functions
 function updateCartQuantity(itemId, change) {
-    const item = menuData.find(m => m.id === itemId);
+    const item = allProducts.find(m => m.id === itemId);
     if (!item) return;
     
     if (cart[itemId]) {
