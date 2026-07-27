@@ -3,28 +3,28 @@ const menuData = [
     {
         id: 1,
         name: "Grilled Croacker BBQ",
-        price: 35000,
+        price: 20000,
         description: "Whole croaker, chargrilled and glazed in smoky pepper sauce.",
         image: "IMAGES/CROAKER BBQ.jpeg"
     },
     {
         id: 2,
         name: "Yam Porridge",
-        price: 4000,
+        price: 1800,
         description: "Soft yam simmered in palm oil sauce with fresh vegetables.",
         image: "IMAGES/YAM PORRIDGE.jpeg"
     },
     {
         id: 3,
         name: "Poundo and Seafood Okro",
-        price: 40000,
+        price: 24000,
         description: "Smooth poundo yam with a rich seafood okro soup.",
         image: "IMAGES/SEA FOOD OKRO.jpeg"
     },
     {
         id: 4,
         name: "Loaded Spaghetti",
-        price: 2800,
+        price: 2000,
         description: "Spaghetti tossed in pepper sauce, loaded with grilled chicken.",
         image: "IMAGES/Loaded spaghetti.jpeg"
     },
@@ -38,7 +38,7 @@ const menuData = [
     {
         id: 6,
         name: "Native Rice",
-        price: 2500,
+        price: 1700,
         description: "Palm oil rice cooked with smoked fish and local spices.",
         image: "IMAGES/Native Rice.jpeg"
     },
@@ -53,7 +53,7 @@ const menuData = [
     {
         id: 8,
         name: "Basmati Steam Rice",
-        price: 2000,
+        price: 1800,
         description: "Fragrant steamed basmati rice with fresh herbs.",
         image: "IMAGES/Basmati Steam Rice.jpeg"
     },
@@ -104,9 +104,9 @@ const menuData = [
     {
         id: 16,
         name: "Grilled Catfish BBQ",
-        price: 35000,
+        price: 20000,
         description: "Whole catfish grilled to perfection in a fiery pepper mix.",
-        image: "https://via.placeholder.com/300x200/1a1a1a/ffffff?text=Grill+Catfish+BBQ"
+        image: "IMAGES/Grilled catfish.jpeg"
     },
     {
         id: 17,
@@ -345,7 +345,7 @@ function checkoutWhatsApp() {
     
     message += `%0APlease confirm my order and let me know payment details.`;
     
-    const whatsappNumber = "2349093840000";
+    const whatsappNumber = "2349038400000";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
     
     window.open(whatsappUrl, '_blank');
