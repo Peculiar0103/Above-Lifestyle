@@ -114,6 +114,27 @@ const menuData = [
         price: 2000,
         description: "Fragrant rice simmered in coconut milk with a light spice kick.",
         image: "IMAGES/Coconut Rice.jpeg"
+    },
+    {
+        id: 18,
+        name: "Hake fish",
+        price: 0,
+        description: "Price and details coming soon.",
+        image: "IMAGES/above logo.jpeg"
+    },
+    {
+        id: 19,
+        name: "Spicy chicken",
+        price: 0,
+        description: "Price and details coming soon.",
+        image: "IMAGES/above logo.jpeg"
+    },
+    {
+        id: 20,
+        name: "Chicken wings",
+        price: 0,
+        description: "Price and details coming soon.",
+        image: "IMAGES/above logo.jpeg"
     }
 ];
 
