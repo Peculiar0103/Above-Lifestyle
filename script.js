@@ -304,15 +304,51 @@ function toggleCart(forceOpen = false) {
         cartSidebar.classList.add('active');
         cartOverlay.classList.add('active');
         document.body.classList.add('no-scroll');
+        showCartPanel(1);
     } else {
+        const isOpening = !cartSidebar.classList.contains('active');
         cartSidebar.classList.toggle('active');
         cartOverlay.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        if (isOpening) showCartPanel(1);
     }
 }
 
 function scrollToMenu() {
     document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+}
+
+function showCartPanel(panel) {
+    const panel1 = document.getElementById('cartPanel1');
+    const panel2 = document.getElementById('cartPanel2');
+    const backBtn = document.getElementById('cartBackBtn');
+    const title = document.getElementById('cartHeaderTitle');
+
+    if (panel === 1) {
+        panel1.style.display = 'flex';
+        panel2.style.display = 'none';
+        backBtn.style.display = 'none';
+        title.textContent = 'Your Order';
+    } else {
+        panel1.style.display = 'none';
+        panel2.style.display = 'flex';
+        backBtn.style.display = 'flex';
+        title.textContent = 'Delivery Details';
+    }
+}
+
+function cancelOrder() {
+    // Clear entire cart
+    cart = {};
+
+    // Close cart sidebar if open
+    cartSidebar.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
+
+    // Reset all UI
+    updateCartUI();
+    updateMenuCardsUI();
 }
 
 // WhatsApp Checkout

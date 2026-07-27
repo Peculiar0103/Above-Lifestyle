@@ -108,35 +108,89 @@
         <!-- Stats Section -->
         <section class="stats-section">
             <div class="stat-item">
-                <div class="stars" style="font-size: 1rem; margin-bottom: 8px;">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                </div>
-                <p>Loved by regular customers</p>
+                <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
+                <div class="stat-value">5.0</div>
+                <div class="stat-label">Customer Rating</div>
+                <div class="stat-sub">Loved by every order</div>
             </div>
+            <div class="stat-divider"></div>
             <div class="stat-item">
-                <h3 class="text-accent" style="font-size: 1.2rem; margin-bottom: 8px;">20 - 30mins</h3>
-                <p>Average delivery time</p>
+                <div class="stat-icon"><i class="fa-solid fa-bolt"></i></div>
+                <div class="stat-value">20<span class="stat-unit">min</span></div>
+                <div class="stat-label">Avg. Delivery Time</div>
+                <div class="stat-sub">Fast across Lagos</div>
             </div>
+            <div class="stat-divider"></div>
             <div class="stat-item">
-                <h3 style="font-size: 1.2rem; margin-bottom: 8px; color: white;">100%</h3>
-                <p>Fresh, made-to-order</p>
+                <div class="stat-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                <div class="stat-value">100<span class="stat-unit">%</span></div>
+                <div class="stat-label">Fresh & Made-to-Order</div>
+                <div class="stat-sub">Cooked fresh daily</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fa-solid fa-bowl-food"></i></div>
+                <div class="stat-value">16<span class="stat-unit">+</span></div>
+                <div class="stat-label">Dishes on the Menu</div>
+                <div class="stat-sub">Something for everyone</div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="logo">
-                <img src="IMAGES/above logo.jpeg" alt="AboveLifestyle Logo" class="logo-img">
+        <div class="footer-inner">
+            <!-- Top Row -->
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="IMAGES/above logo.jpeg" alt="AboveLifestyle Logo" class="logo-img">
+                        <span class="logo-text">AboveLifestyle</span>
+                    </div>
+                    <p class="footer-tagline">Real Nigerian flavor, cooked fresh daily<br>and delivered fast across Lagos.</p>
+                    <a href="https://wa.me/2349038400000" target="_blank" class="footer-cta">
+                        <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+                    </a>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4 class="footer-links-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Our Menu</a></li>
+                        <li><a href="tel:+2349038400000">Call Us</a></li>
+                        <li><a href="https://wa.me/2349038400000" target="_blank">WhatsApp</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4 class="footer-links-title">Delivery</h4>
+                    <ul class="footer-links">
+                        <li><span>Lagos — Lekki & environs</span></li>
+                        <li><span>Order before 6pm</span></li>
+                        <li><span>Same-day delivery</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4 class="footer-links-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2349038400000">+234 903 840 0000</a></li>
+                        <li><span>Mon – Sun: 8am – 8pm</span></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-contact">
-                <p style="font-size: 0.75rem; color: #888;">Orders placed via WhatsApp - <a href="tel:+2349038400000" style="color: #888; text-decoration: none;">+234 903 840 0000</a></p>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
                 <p class="copyright">&copy; 2026 AboveLifestyle. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/2349038400000" target="_blank" class="social-btn" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="tel:+2349038400000" class="social-btn" aria-label="Phone">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
@@ -147,84 +201,111 @@
             <span class="toast-items" id="toastItemCount">0 Item(s)</span>
             <span class="toast-price" id="toastTotalPrice">₦0</span>
         </div>
-        <button class="toast-btn" onclick="toggleCart(true)">View cart</button>
+        <div class="toast-actions">
+            <button class="toast-cancel-btn" onclick="cancelOrder()">Cancel order</button>
+            <button class="toast-btn" onclick="toggleCart(true)">View cart</button>
+        </div>
     </div>
 
     <!-- Cart Sidebar/Modal -->
     <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
     <div class="cart-sidebar" id="cartSidebar">
+
+        <!-- Header -->
         <div class="cart-header">
-            <h3>Your Order</h3>
-            <button class="close-btn" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="cart-header-left">
+                <button class="cart-back-btn" id="cartBackBtn" onclick="showCartPanel(1)" style="display:none;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <h3 id="cartHeaderTitle">Your Order</h3>
+                <span class="cart-header-count" id="cartHeaderCount">0 items</span>
+            </div>
+            <button class="close-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
         </div>
-        <div class="cart-scroll-area">
+
+        <!-- PANEL 1: Items + Summary -->
+        <div class="cart-panel" id="cartPanel1">
             <div class="cart-items" id="cartItemsContainer">
-                <!-- Cart items go here -->
-                <div class="empty-cart-msg" id="emptyCartMsg">Your cart is empty</div>
+                <div class="empty-cart-msg" id="emptyCartMsg">
+                    <i class="fa-solid fa-bowl-food empty-cart-icon"></i>
+                    <p>Your cart is empty</p>
+                    <span>Add some dishes to get started</span>
+                </div>
             </div>
 
-            <div class="cart-summary" id="cartSummarySection" style="display: none;">
-                <div class="cart-summary-row">
-                    <span>Subtotal</span>
-                    <span id="cartSubtotalPrice">₦0</span>
+            <div class="cart-panel-footer" id="cartSummarySection" style="display:none;">
+                <div class="summary-block">
+                    <div class="cart-summary-row">
+                        <span>Subtotal</span>
+                        <span id="cartSubtotalPrice">₦0</span>
+                    </div>
+                    <div class="cart-summary-row">
+                        <span>Package fee</span>
+                        <span>₦1,000</span>
+                    </div>
+                    <div class="cart-summary-row total-row">
+                        <span>Total</span>
+                        <span id="cartTotalPrice">₦0</span>
+                    </div>
                 </div>
-                <div class="cart-summary-row">
-                    <span>Package fee</span>
-                    <span>₦1,000</span>
-                </div>
-                <div class="cart-summary-row total-row">
-                    <span>Total</span>
-                    <span id="cartTotalPrice">₦0</span>
-                </div>
+                <button class="proceed-btn" onclick="showCartPanel(2)">
+                    Proceed to checkout <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
 
+        <!-- PANEL 2: Delivery Form -->
+        <div class="cart-panel" id="cartPanel2" style="display:none;">
+            <div class="cart-form-scroll">
                 <div class="checkout-form">
-                    <h4 class="form-section-title">DELIVERY DETAILS</h4>
-                    
+                    <h4 class="form-section-title"><i class="fa-solid fa-location-dot"></i> Delivery Details</h4>
+
                     <div class="form-group">
                         <label>Full name</label>
                         <input type="text" id="custName" placeholder="e.g. Amaka Okafor">
                     </div>
-                    
                     <div class="form-group">
                         <label>Phone number</label>
                         <input type="tel" id="custPhone" placeholder="080...">
                     </div>
-                    
                     <div class="form-group">
                         <label>Delivery address</label>
                         <input type="text" id="custAddress" placeholder="House no., street, area">
                     </div>
-                    
                     <div class="form-group">
-                        <label>Landmark (optional)</label>
+                        <label>Landmark <span class="label-optional">(optional)</span></label>
                         <input type="text" id="custLandmark" placeholder="Near...">
                     </div>
-                    
                     <div class="form-group">
-                        <label>Special instructions (optional)</label>
-                        <textarea id="custNotes" placeholder=""></textarea>
+                        <label>Special instructions <span class="label-optional">(optional)</span></label>
+                        <textarea id="custNotes" placeholder="Any allergies or requests?"></textarea>
                     </div>
-
                     <div class="form-group">
                         <label>Delivery time</label>
                         <div class="delivery-time-options">
-                            <button type="button" class="time-btn active" onclick="selectTime(this, 'ASAP (within 45 mins)')">ASAP (within 45 mins)</button>
-                            <button type="button" class="time-btn" onclick="selectTime(this, '9am - 11am')">9am - 11am</button>
-                            <button type="button" class="time-btn" onclick="selectTime(this, '11am - 1pm')">11am - 1pm</button>
-                            <button type="button" class="time-btn" onclick="selectTime(this, '1pm - 3pm')">1pm - 3pm</button>
+                            <button type="button" class="time-btn active" onclick="selectTime(this, 'ASAP (within 45 mins)')">ASAP</button>
+                            <button type="button" class="time-btn" onclick="selectTime(this, '9am - 11am')">9–11am</button>
+                            <button type="button" class="time-btn" onclick="selectTime(this, '11am - 1pm')">11am–1pm</button>
+                            <button type="button" class="time-btn" onclick="selectTime(this, '1pm - 3pm')">1–3pm</button>
                         </div>
                     </div>
-
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label>Payment method</label>
-                        <p class="payment-note">Payment Confirmation Validates Order</p>
+                    <div class="form-group">
+                        <label>Payment</label>
+                        <p class="payment-note"><i class="fa-solid fa-circle-info"></i> Payment confirmation validates your order</p>
                     </div>
-                    
-                    <button class="btn place-order-btn" onclick="checkoutWhatsApp()">Place order on WhatsApp</button>
-                    <p class="redirect-note">You'll be redirected to WhatsApp to confirm and send your order.</p>
                 </div>
             </div>
+
+            <div class="cart-panel-footer">
+                <button class="btn place-order-btn" onclick="checkoutWhatsApp()">
+                    <i class="fa-brands fa-whatsapp"></i> Place order on WhatsApp
+                </button>
+                <p class="redirect-note">You'll be redirected to WhatsApp to confirm and send your order.</p>
+            </div>
         </div>
+
     </div>
 
     <script src="script.js"></script>
