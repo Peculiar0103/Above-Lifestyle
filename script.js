@@ -111,7 +111,7 @@ const menuData = [
     {
         id: 17,
         name: "Coconut Rice",
-        price: 4000,
+        price: 2000,
         description: "Fragrant rice simmered in coconut milk with a light spice kick.",
         image: "IMAGES/Coconut Rice.jpeg"
     }
