@@ -144,7 +144,7 @@ function initMenu() {
             <div class="card-image">
                 <img src="${item.image}" alt="${item.name}">
                 <button class="favorite-btn"><i class="fa-solid fa-heart" style="color: #ccc;"></i></button>
-                <div class="card-logo">A</div>
+                <img src="IMAGES/above logo.jpeg" alt="Logo" class="card-logo">
             </div>
             <div class="card-content">
                 <div class="card-header">
@@ -296,9 +296,11 @@ function toggleCart(forceOpen = false) {
     if (forceOpen === true) {
         cartSidebar.classList.add('active');
         cartOverlay.classList.add('active');
+        document.body.classList.add('no-scroll');
     } else {
         cartSidebar.classList.toggle('active');
         cartOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
     }
 }
 

@@ -23,6 +23,11 @@ body {
     overflow-x: hidden;
 }
 
+/* Base Styles */
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* Utilities */
 .text-accent { color: var(--accent); }
 .text-muted { color: var(--text-muted); }
@@ -99,9 +104,10 @@ body {
 }
 
 .logo-img {
-    height: 32px;
+    height: 70px;
     width: auto;
     display: block;
+    mix-blend-mode: screen;
 }
 
 .nav-actions {
@@ -317,11 +323,11 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    transition: box-shadow 0.3s;
 }
 
 .menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .card-image {
@@ -335,23 +341,24 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover .card-image img {
+    transform: scale(1.1);
 }
 
 .card-logo {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 25px;
-    height: 25px;
-    background-color: var(--bg-main);
-    color: var(--accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .favorite-btn {
@@ -472,17 +479,15 @@ body {
 
 /* Stats Section */
 .stats-section {
-    max-width: 1200px;
-    margin: 60px auto;
     max-width: 1400px;
-    margin: 60px auto 0;
+    margin: 60px auto 100px;
     padding: 60px 5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #12110c;
-    text-align: center;
-    border-top: 1px solid var(--border-color);
+    background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070') center/cover;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
 }
 
 .stat-box {
@@ -696,6 +701,7 @@ footer {
     height: 70px;
     border-radius: 8px;
     object-fit: cover;
+    flex-shrink: 0;
 }
 
 .cart-item-details {
