@@ -258,7 +258,14 @@ function updateCartUI() {
     }
     
     // Update count badges
-    cartCountElements.forEach(el => el.textContent = totalItems);
+    cartCountElements.forEach(el => {
+        el.textContent = totalItems;
+        if (totalItems > 0) {
+            el.style.display = 'inline-block';
+        } else {
+            el.style.display = 'none';
+        }
+    });
     
     // Update prices
     const cartSubtotalPrice = document.getElementById('cartSubtotalPrice');

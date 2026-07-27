@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboveLifestyle | Freshly prepared meals</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts are imported in style.css -->
     <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <!-- Top Banner -->
     <div class="top-banner">
         <span><span class="text-accent">SAME-DAY DELIVERY</span> &middot; Order before 6pm for delivery today</span>
@@ -22,6 +21,7 @@
         <div class="nav-container">
             <div class="logo">
                 <img src="IMAGES/above logo.jpeg" alt="AboveLifestyle Logo" class="logo-img">
+                <span class="logo-text">AboveLifestyle</span>
             </div>
             <div class="nav-actions">
                 <a href="tel:+2349038400000" class="icon-btn" id="phoneLink">
@@ -29,6 +29,7 @@
                 </a>
                 <button class="cart-btn" onclick="toggleCart()">
                     <span class="cart-text">Cart</span>
+                    <span class="cart-count">0</span>
                 </button>
             </div>
         </div>
@@ -66,11 +67,11 @@
                         <span class="feature-text">Ingredients</span>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-title text-accent">Affordable</span>
+                        <span class="feature-title">Affordable</span>
                         <span class="feature-text">Prices</span>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-title text-accent">Same-day</span>
+                        <span class="feature-title">Same-day</span>
                         <span class="feature-text">Delivery</span>
                     </div>
                 </div>
