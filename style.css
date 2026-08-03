@@ -1672,13 +1672,6 @@ footer {
 .drink-add-btn:hover {
     background-color: var(--accent-hover);
     transform: scale(1.1);
-}
-
- 
- / *   C a r t   D r i n k s   U p s e l l   * / 
- . c a r t - d r i n k s - s e c t i o n   { 
-         p a d d i n g :   1 5 p x   2 0 p x ; 
-         b o r d e r - t o p :   1 p x   s o l i d   v a r ( - - b o r d e r - c o l o r ) ; 
          b a c k g r o u n d - c o l o r :   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 0 2 ) ; 
  } 
  

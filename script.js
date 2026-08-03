@@ -24,7 +24,7 @@ const menuData = [
     {
         id: 4,
         name: "Loaded Spaghetti",
-        price: 2000,
+        price: 5000,
         description: "Spaghetti tossed in pepper sauce, loaded with grilled chicken.",
         image: "IMAGES/Loaded spaghetti.jpeg"
     },
@@ -61,7 +61,7 @@ const menuData = [
         id: 10,
         name: "Beef",
         price: 5000,
-        description: "Tender cut beef chunks in rich sauce.",
+        description: "3 pieces of tender cut beef chunks in rich sauce for ₦5,000.",
         image: "IMAGES/Beef.jpeg"
     },
     {
@@ -97,7 +97,7 @@ const menuData = [
     {
         id: 15,
         name: "Fried Rice",
-        price: 2000,
+        price: 2500,
         description: "Traditional Nigerian fried rice, cooked to perfection.",
         image: "IMAGES/Fried Rice.jpeg"
     },
@@ -118,49 +118,46 @@ const menuData = [
     {
         id: 18,
         name: "Hake fish",
-        price: 0,
-        description: "Price and details coming soon.",
-        image: "IMAGES/above logo.jpeg"
+        price: 4000,
+        description: "Delicious Hake Fish.",
+        image: "IMAGES/HAKE FISH.jpeg"
     },
     {
         id: 19,
         name: "Spicy chicken",
-        price: 0,
-        description: "Price and details coming soon.",
-        image: "IMAGES/above logo.jpeg"
+        price: 4500,
+        description: "Delicious Spicy Chicken.",
+        image: "IMAGES/SPICY  CHICKEN.jpeg"
     },
     {
         id: 20,
         name: "Chicken wings",
-        price: 0,
-        description: "Price and details coming soon.",
-        image: "IMAGES/above logo.jpeg"
-    }
-];
-
-// Drinks Data
-const drinksData = [
+        price: 4500,
+        description: "Delicious Chicken Wings.",
+        image: "IMAGES/CHICKEN WINGS.jpeg"
+    },
     {
         id: 101,
         name: "Milkshake",
         price: 9000,
+        description: "A rich and creamy milkshake.",
         image: "DRINK/Milkshake.jpeg"
     },
     {
         id: 102,
         name: "Smoothie",
         price: 7000,
+        description: "Freshly blended fruit smoothie.",
         image: "DRINK/SMOOTHIES.jpeg"
     },
     {
         id: 103,
         name: "Long Island",
         price: 10000,
+        description: "Classic Long Island iced tea.",
         image: "DRINK/Long island.jpeg"
     }
 ];
-
-const allProducts = [...menuData, ...drinksData];
 
 // Cart State
 let cart = {};
@@ -209,30 +206,7 @@ function initMenu() {
         `;
         menuGrid.appendChild(card);
     });
-    renderDrinks();
     updateMenuCardsUI();
-}
-
-function renderDrinks() {
-    const drinksList = document.getElementById('drinksList');
-    if (!drinksList) return;
-    
-    drinksList.innerHTML = '';
-    drinksData.forEach(drink => {
-        const card = document.createElement('div');
-        card.className = 'drink-card';
-        card.innerHTML = `
-            <img src="${drink.image}" alt="${drink.name}">
-            <div class="drink-card-info">
-                <h5>${drink.name}</h5>
-                <span>₦${drink.price.toLocaleString()}</span>
-            </div>
-            <button class="drink-add-btn" onclick="updateCartQuantity(${drink.id}, 1)">
-                <i class="fa-solid fa-plus"></i>
-            </button>
-        `;
-        drinksList.appendChild(card);
-    });
 }
 
 function updateMenuCardsUI() {
@@ -257,7 +231,7 @@ function updateMenuCardsUI() {
 
 // Cart Functions
 function updateCartQuantity(itemId, change) {
-    const item = allProducts.find(m => m.id === itemId);
+    const item = menuData.find(m => m.id === itemId);
     if (!item) return;
     
     if (cart[itemId]) {
