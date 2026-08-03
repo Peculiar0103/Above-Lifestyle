@@ -181,10 +181,20 @@ function initMenu() {
         
         let badgeHtml = item.badge ? `<div class="card-badge">${item.badge}</div>` : '';
         
+        let imgClass = '';
+        let containerClass = '';
+        let containerStyle = '';
+        
+        if (item.image.includes('DRINK')) {
+            imgClass = 'drink-img';
+            containerClass = 'drink-container';
+            containerStyle = `background-image: url('${item.image}');`;
+        }
+        
         card.innerHTML = `
             ${badgeHtml}
-            <div class="card-image">
-                <img src="${item.image}" alt="${item.name}">
+            <div class="card-image ${containerClass}" style="${containerStyle}">
+                <img src="${item.image}" alt="${item.name}" class="${imgClass}">
                 <button class="favorite-btn"><i class="fa-solid fa-heart" style="color: #ccc;"></i></button>
                 <img src="IMAGES/above logo.jpeg" alt="Logo" class="card-logo">
             </div>
