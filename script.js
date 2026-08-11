@@ -38,7 +38,7 @@ const menuData = [
     {
         id: 6,
         name: "Native Rice",
-        price: 1700,
+        price: 2000,
         description: "Palm oil rice cooked with smoked fish and local spices.",
         image: "IMAGES/Native Rice.jpeg"
     },
